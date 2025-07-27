@@ -87,7 +87,7 @@ button:hover {
   }
 }
 
-/* Gallery flex container */
+/* Gallery grid container */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -96,38 +96,65 @@ button:hover {
   justify-content: center;
 }
 
-/* Gallery items */
-.gallery-item {
-  flex: 1 1 100%;  /* full width by default */
-  min-width: 280px;
-  max-width: 500px;
+/* Individual card styles */
+.card {
+  flex: 1 1 300px; /* Flexible width with minimum of 300px */
+  max-width: 400px; /* Maximum width to prevent cards from getting too large */
   background: white;
-  padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Three columns on wider screens */
-@media (min-width: 1000px) {
-  .gallery-item {
-    flex: 0 1 31%;
-  }
+/* Card hover effect */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.gallery-item img {
+/* Card media (images and videos) */
+.card img,
+.card iframe {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 4px;
+  border: none;
+  flex-shrink: 0;
 }
 
-.gallery-item p {
-  margin-top: 10px;
-  padding: 5px;
+/* Card title */
+.card-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  padding: 10px 15px 5px 15px;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Card date */
+.card-date {
   font-size: 14px;
+  font-weight: bold;
+  color: #666;
+  padding: 0 15px 15px 15px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Loading and error messages */
+.loading,
+.error {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  width: 100%;
+}
+
+.error {
+  color: #d32f2f;
 }
 
 /* Placeholder content */
@@ -141,4 +168,87 @@ button:hover {
 .placeholder-icon {
   font-size: 48px;
   margin-bottom: 20px;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-content img,
+.modal-content iframe {
+  /* Make both images and videos the same size in modal */
+  width: 100%;
+  height: 400px; /* Fixed height for consistency between images and iframes */
+  object-fit: contain; /* Keep image proportions while fitting in the container */
+  margin-bottom: 15px;
+  border: none;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.modal-content p {
+  line-height: 1.6;
+  color: #555;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  background: none;
+  border: none;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+.navigation {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgna(33, 33, 33, 0.8);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 100;
+  padding: 0 20px;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 10px 0;
+}
+
+.nav-link {
+
+  .navigation {}
 }
