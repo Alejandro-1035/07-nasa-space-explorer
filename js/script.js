@@ -233,10 +233,12 @@ function openModal(item) {
     <div class="modal-content">
       <span class="close-button">&times;</span>
       <h2>${item.title}</h2>
-      <p class="modal-date"><strong>Date:</strong> ${formattedDate}</p>
       ${mediaContent}
-      ${copyrightSection}
-      <p class="modal-explanation">${item.explanation || 'No description available.'}</p>
+      <div class="modal-text-content">
+        <p class="modal-date"><strong>Date:</strong> ${formattedDate}</p>
+        ${copyrightSection}
+        <p class="modal-explanation">${item.explanation || 'No description available.'}</p>
+      </div>
     </div>
   `;
 
