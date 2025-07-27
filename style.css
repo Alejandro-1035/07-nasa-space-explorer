@@ -18,7 +18,6 @@ body {
   margin: 0 auto;
 }
 
-/* Header */
 .site-header {
   display: flex;
   align-items: center;
@@ -34,7 +33,6 @@ h1 {
   color: #212121;
 }
 
-/* Logo */
 .logo {
   width: 140px;
   margin-right: 15px;
@@ -74,7 +72,6 @@ button:hover {
   background-color: #bfbfbf;
 }
 
-/* Stack horizontally on wider screens */
 @media (min-width: 600px) {
   .filters {
     flex-direction: row;
@@ -98,8 +95,8 @@ button:hover {
 
 /* Individual card styles */
 .card {
-  flex: 1 1 300px; /* Flexible width with minimum of 300px */
-  max-width: 400px; /* Maximum width to prevent cards from getting too large */
+  flex: 1 1 300px;
+  max-width: 400px;
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -144,17 +141,191 @@ button:hover {
   flex-shrink: 0;
 }
 
-/* Loading and error messages */
-.loading,
-.error {
+/* Card copyright */
+.card-copyright {
+  font-size: 12px;
+  color: #888;
+  padding: 0 15px 10px 15px;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Unknown media type styling */
+.unknown-media {
+  width: 100%;
+  height: 200px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-style: italic;
+  border: 2px dashed #ccc;
+}
+
+/* No results message */
+.no-results {
   text-align: center;
   padding: 40px;
   color: #666;
+  font-style: italic;
   width: 100%;
 }
 
-.error {
+/* Loading screen with NASA branding */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  width: 100%;
+  min-height: 400px;
+  background: #f1f1f1;
+  border-radius: 15px;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* NASA logo in loading screen */
+.loading-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+  /* Gentle pulse animation */
+  animation: logoPulse 2s ease-in-out infinite alternate;
+}
+
+/* Loading content container */
+.loading-content {
+  max-width: 400px;
+}
+
+/* Loading title */
+.loading-content h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: rgb(44, 44, 44);
+}
+
+/* Loading progress bar container */
+.loading-bar {
+  width: 100%;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+/* Loading progress bar fill */
+.loading-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #fff, #87CEEB);
+  border-radius: 4px;
+  /* Animated loading bar */
+  animation: loadingProgress 2s ease-in-out infinite;
+}
+
+/* Loading text */
+.loading-text {
+  font-size: 16px;
+  margin: 15px 0;
+  opacity: 0.9;
+  color: rgb(44, 44, 44);
+}
+
+/* Loading spinner */
+.loading-spinner {
+  font-size: 32px;
+  margin-top: 15px;
+  /* Rotating rocket animation */
+  animation: rocketSpin 3s linear infinite;
+}
+
+.loading-fact {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 4px solid #ffecec;
+}
+
+.loading-fact h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: black;
+  font-weight: bold;
+}
+
+.loading-fact p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: black;
+  font-style: italic;
+  margin: 0;
+  /* Smooth transition for fact changes */
+  transition: opacity 0.25s ease-in-out;
+}
+
+/* Error screen styling */
+.error-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  width: 100%;
+  min-height: 300px;
+  background-color: #fff5f5;
+  border: 2px solid #fed7d7;
+  border-radius: 15px;
   color: #d32f2f;
+}
+
+/* Error logo */
+.error-logo {
+  width: 80px;
+  height: auto;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+/* Animations */
+@keyframes logoPulse {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes loadingProgress {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes rocketSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Placeholder content */
@@ -170,7 +341,6 @@ button:hover {
   margin-bottom: 20px;
 }
 
-/* Modal styles */
 .modal {
   position: fixed;
   top: 0;
@@ -197,12 +367,11 @@ button:hover {
 
 .modal-content img,
 .modal-content iframe {
-  /* Make both images and videos the same size in modal */
-  width: 100%;
-  height: 400px; /* Fixed height for consistency between images and iframes */
-  object-fit: contain; /* Keep image proportions while fitting in the container */
+  width: 100%; 
+  object-fit: contain;
   margin-bottom: 15px;
   border: none;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .modal-content h2 {
@@ -213,6 +382,31 @@ button:hover {
 .modal-content p {
   line-height: 1.6;
   color: #555;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.modal-date {
+  font-size: 16px;
+  color: #0B3D91;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.modal-copyright {
+  font-size: 14px;
+  color: #888;
+  font-style: italic;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+
+.modal-explanation {
+  font-weight: normal !important;
+  font-size: 15px;
+  text-align: left;
+  max-height: none;
 }
 
 .close-button {
